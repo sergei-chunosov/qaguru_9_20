@@ -13,6 +13,3 @@ def get_cookie():
     response = requests.post(url, data=payload, allow_redirects=False)
     cookies = response.cookies.get('NOPCOMMERCE.AUTH')
     return cookies
-
-
-print(get_cookie())

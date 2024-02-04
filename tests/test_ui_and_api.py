@@ -19,15 +19,15 @@ def test_add_to_card():
 
     browser.open('')
     browser.driver.add_cookie({'name': 'NOPCOMMERCE.AUTH', 'value': cookies})
-    browser.open('')
+    browser.open('https://demowebshop.tricentis.com/build-your-cheap-own-computer')
     browser.element('.account').should(have.text(user_name))
 
-    with step('Добавление товара в карзину'):
+    with step('Добавление товара в корзину'):
         url = '/addproducttocart/details/72/1'
-        payload = {"product_attribute_72_5_18": 53,
-                   "product_attribute_72_6_19": 54,
-                   "product_attribute_72_3_20": 57,
-                   "addtocart_72.EnteredQuantity": 1
+        payload = {"product_attribute_72_5_18": "53",
+                   "product_attribute_72_6_19": "54",
+                   "product_attribute_72_3_20": "57",
+                   "addtocart_72.EnteredQuantity": "1"
                    }
 
         response = post_request(url, data=payload, cookies={'NOPCOMMERCE.AUTH': cookies})
